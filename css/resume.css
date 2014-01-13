@@ -1,0 +1,72 @@
+#header h1 { 
+	font-family: droid-sans, sans-serif;
+	font-size: 4.3em;
+    line-height: 60px;
+	color: #000;
+    text-shadow: 3px 5px 15px #f8f8f8;
+    margin: 0;
+}
+
+#header .name { 
+    display: block; 
+}
+
+#header .title { 
+    display: block; 
+    font-size: .53em; 
+}
+
+h2 {
+	text-align: left;
+	font-family: stencil-std, sans-serif;
+	font-size: 1.4em; 
+	color: #333; 
+    text-transform: uppercase;
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #666;
+    padding: .4em .1em .4em;
+}
+
+h3 { 
+    font-size: 1.3em; 
+}
+
+#header .navbar { 
+    margin-top: 2em; 
+    border-width: 2px 0 1px 0;
+    border-top-color: #333;
+    border-bottom-color: #666;
+    border-radius: 0;
+}
+
+#header .navbar-nav>li>a {
+    font-weight: bold;
+    color: #000;
+}
+
+#content + section { 
+    padding-top: 2em; 
+}
+
+@media only screen and (min-width: 960px) {
+	body { 
+        padding: 2em 2em 0; 
+    }
+
+    #resume { 
+        padding: 2em;
+        border: 5px solid #333;   
+    }
+
+    .footer { 
+        padding-top: 2em; 
+        padding-bottom: 2em; 
+    }
+}
+
+@media print {
+    h1 { font-size: 20px; }
+    h3 { font-size: 12px; }
+    h2 { font-size: 14px; }
+    h3 { font-size: 12px; }
+}
