@@ -31,7 +31,23 @@ var CL = window.CL || {};
 	 * @constructor
 	 * @author Craig Lucas <clucas@everydayhealthinc.com>
 	 */
-	CL.ResumeConstructor = function () {};
+	CL.ResumeConstructor = function () {
+		this.portfolioLinks = 
+			(function () {
+			    var json = null;
+			    $.ajax({
+			        'async': false,
+			        'global': false,
+			        'url': 'js/portfolio-pages.json',
+			        'dataType': "json",
+			        'success': function (data) {
+			            json = data;
+			        }
+			    });
+			    return json;
+			})(); 		
+		
+	};
 
 	/**
 	 * Inheritable methods.
