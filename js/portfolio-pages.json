@@ -1,18 +1,25 @@
 {
 	"name": "portfolio pages",
-	"pages": [{
-		"name": "storylogues",
-		"imgPath": "",
-		"descriptionHtml" : ""
-	},
-	{
-		"name": "storylogues",
-		"imgPath": "",
-		"descriptionHtml" : ""		
-	},
-	{
-		"name": "storylogues",
-		"imgPath": "",
-		"descriptionHtml" : ""		
-	}]
+	"pages": [
+		{
+			"name": "old-article",
+			"imgPath": "",
+			"descriptionHtml" : "html for old article"
+		},
+		{
+			"name": "new-article",
+			"imgPath": "",
+			"descriptionHtml" : "html for new article"		
+		},
+		{
+			"name": "storylogues",
+			"imgPath": "",
+			"descriptionHtml" : "html for storylogues"		
+		},
+		{
+			"name": "wedding-site",
+			"imgPath": "",
+			"descriptionHtml" : "html for wedding site"		
+		}			
+	]
 }

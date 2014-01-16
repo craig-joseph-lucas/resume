@@ -31,23 +31,7 @@ var CL = window.CL || {};
 	 * @constructor
 	 * @author Craig Lucas <clucas@everydayhealthinc.com>
 	 */
-	CL.ResumeConstructor = function () {
-		this.portfolioLinks = 
-			(function () {
-			    var json = null;
-			    $.ajax({
-			        'async': false,
-			        'global': false,
-			        'url': 'js/portfolio-pages.json',
-			        'dataType': "json",
-			        'success': function (data) {
-			            json = data;
-			        }
-			    });
-			    return json;
-			})(); 		
-		
-	};
+	CL.ResumeConstructor = function () {};
 
 	/**
 	 * Inheritable methods.
@@ -65,10 +49,34 @@ var CL = window.CL || {};
 		 * @public
 		 */
 		init : function () {
+		
+		   // set cache for jQ async scripts
+            this.setCache();
+			
+			// initialize object setups
 			this.objectInit();
+			
+			// initialize action links
             this.ActionLinks.init(this);
-			this.Nav.load(this);
+			
+			// initialize nav
+			this.Nav.init(this);
 		},
+		
+        /**
+         * Set cache for jQuery asynchronous scripts.<br>
+         * Modified: 08/27/2013
+         *
+         * @method setCache
+         * @author Craig Lucas <clucas@everydayhealthinc.com>
+         * @public
+        */
+        setCache: function () {
+            $.ajaxSetup({
+                cache: true
+            });
+        },		
+		
 
 		/**
 		 * Initialize objects
@@ -83,11 +91,13 @@ var CL = window.CL || {};
                 linkedIn: "http://www.linkedin.com/in/craigjosephlucas",
                 email: 'craig.joseph.lucas@gmail.com'
             },
+			
             this.$jq = [];
             this.$jq.$resume = $('#resume'),
             this.$jq.$email = this.$jq.$resume.find('#email');
             this.$jq.$print = this.$jq.$resume.find('#print');
             this.$jq.$pdf = this.$jq.$resume.find('#pdf');
+			this.$jq.$pLinks = this.$jq.$resume.find('#portfolioLinks li a'); // portfolio links
 		},
 		/**
 		 * Nav object.
@@ -107,7 +117,7 @@ var CL = window.CL || {};
 			 * @author Craig Lucas <clucas@everydayhealthinc.com>
 			 * @public
 			 */
-			load : function (_p) {
+			init : function (_p) {
                 this.events.click();
 			},
              
@@ -162,6 +172,7 @@ var CL = window.CL || {};
                 this.email.call(_p);
                 this.print.call(_p);
                 this.pdf.call(_p);
+				this.portfolioLinks.init(_p);
             },                 
             
             /**
@@ -209,7 +220,73 @@ var CL = window.CL || {};
                     w.open("LucasCraigResume.pdf");
                     e.preventDefault();
                 });    
-            },                 
+            }, 
+
+			portfolioLinks: {
+				/**
+				 * init method for portfolioLinks
+				 * Modified: 09/21/2013
+				 *
+				 * @method init
+				 * @author Craig Lucas <clucas@everydayhealthinc.com>
+				 * @public
+				 */
+				init : function (_p) {
+					var _s = this, // reference to this
+						  $link, // link data
+						  pageName;
+						  
+					_p.$jq.$pLinks.on("click.portfolioLinks", function (e) {						
+						e.preventDefault();
+						$link = $(this);
+						pageName = $link.data('pageName');
+						_s.load(_p, pageName);
+					});    					
+				},
+				
+				/**
+				 * load event for portfolio links
+				 * Modified: 09/21/2013
+				 *
+				 * @method init
+				 * @author Craig Lucas <clucas@everydayhealthinc.com>
+				 * @public
+				 */
+				load : function (_p, pageName){
+                    
+                    var request = 'js/portfolio-pages.json',
+                        _self = this;
+                    
+                    $.getJSON(request, function (data) {
+					   $.each(data.pages, function (i, link) {
+                          if (pageName === link.name) {
+                            _self.show(link);
+                          }
+                       });   
+                    });    
+				},
+                
+                
+				/**
+				 * show portfolio link
+				 * Modified: 09/21/2013
+				 *
+				 * @method init
+				 * @author Craig Lucas <clucas@everydayhealthinc.com>
+				 * @public
+				 */
+				show : function (link){
+                    var $modal = $('#resumeModal');
+                    
+                    // lets add the portfolio link html to modal
+                    $modal.find('.modal-body').html(link.descriptionHtml);
+                    
+                    // show modal
+                    $modal.modal('show');
+                    
+                }    
+
+			}
                 
         }        
     
