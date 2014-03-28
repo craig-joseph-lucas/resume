@@ -1,0 +1,30 @@
+h2 {
+	text-align: left;
+	font-family: stencil-std, sans-serif;
+	font-size: 1.4em; 
+	color: #333; 
+    text-transform: uppercase;
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #666;
+    padding: .4em .1em .4em;
+}
+
+h3 { 
+    font-size: 1.3em; 
+}
+
+#content + section { 
+    padding-top: 2em; 
+}
+
+
+@media only screen and (min-width: 960px) {
+	body { 
+        padding: 2em 2em 0; 
+    }
+
+    #resume { 
+        padding: 2em;
+        border: 5px solid #333;   
+    }
+}

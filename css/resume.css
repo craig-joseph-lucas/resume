@@ -16,20 +16,7 @@
     font-size: .53em; 
 }
 
-h2 {
-	text-align: left;
-	font-family: stencil-std, sans-serif;
-	font-size: 1.4em; 
-	color: #333; 
-    text-transform: uppercase;
-    border-top: 2px solid #333;
-    border-bottom: 1px solid #666;
-    padding: .4em .1em .4em;
-}
-
-h3 { 
-    font-size: 1.3em; 
-}
+]
 
 #header .navbar { 
     margin-top: 2em; 

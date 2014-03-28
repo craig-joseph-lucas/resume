@@ -11,7 +11,7 @@
  * @global
  * @public
  */
-var CL = window.CL || {};
+var CL = Window.CL || {};
 
 /**
  * Immediately-Invoked Function Expression.
@@ -57,10 +57,13 @@ var CL = window.CL || {};
 			this.objectInit();
 
 			// initialize action links
-			this.ActionLinks.init(this);
+			this.ActionLinks.init.call(this);
+            
+            // initialize projects
+            this.Projects.init.call(this);
 
 			// initialize nav
-			this.Nav.init();
+			this.Nav.init.call(this);
 		},
 
 		/**
@@ -89,19 +92,20 @@ var CL = window.CL || {};
 		 */
 		objectInit : function () {
 		
-			this.settings = {
-				linkedIn : "http://www.linkedin.com/in/craigjosephlucas",
-				email : 'craig.joseph.lucas@gmail.com'
-			},
-
+            this.settings = [];
+			this.settings.linkedIn = 'http://www.linkedin.com/in/craigjosephlucas';
+			this.settings.email	= 'craig.joseph.lucas@gmail.com';
+			
 			this.$jq = [];
-			this.$jq.$resume = $('#resume'),
+			this.$jq.$resume = $('#resume');
 			this.$jq.$email = this.$jq.$resume.find('#email');
 			this.$jq.$print = this.$jq.$resume.find('#print');
 			this.$jq.$pdf = this.$jq.$resume.find('#pdf');
-			this.$jq.$pLinks = this.$jq.$resume.find('#portfolioLinks li a'); // portfolio links
+			this.$jq.$pLinks = this.$jq.$resume.find('#projects li a'); // portfolio links
 			
 		},
+        
+
 		
 		/**
 		 * Nav object.
@@ -122,7 +126,7 @@ var CL = window.CL || {};
 			 * @public
 			 */
 			init : function () {
-				this.events.click();
+				this.Nav.events.click.call(this);
 			},
 
 			/**
@@ -146,9 +150,9 @@ var CL = window.CL || {};
 				click : function () {
 				
 					var $navDiv = $('#resumeNav'),
-					_self = this,
-					$page = $('html, body'),
-					$link;
+                        _self = this,
+                        $page = $('html, body'),
+                        $link;
 
 					$navDiv.find('li a').on("click.sectionAnchor", function (e) {
 						$link = $($(this).attr('href'));
@@ -174,12 +178,11 @@ var CL = window.CL || {};
 			 * @author Craig Lucas <http://www.linkedin.com/in/craigjosephlucas>
 			 * @public
 			 */
-			init : function (_p) {
-			
-				this.email.call(_p);
-				this.print.call(_p);
-				this.pdf.call(_p);
-				this.portfolioLinks.init(_p);
+			init : function () {
+                
+				this.ActionLinks.email.call(this);
+				this.ActionLinks.print.call(this);
+				this.ActionLinks.pdf.call(this);
 				
 			},
 
@@ -196,7 +199,7 @@ var CL = window.CL || {};
 				var uri = "mailto:?craig.joseph.lucas@gmail.com";
 				
 				this.$jq.$email.on("click.email", function (e) {
-					w.open(uri)
+					w.open(uri);
 					e.preventDefault();
 				});
 			
@@ -234,110 +237,194 @@ var CL = window.CL || {};
 					e.preventDefault();
 				});
 				
-			},
-
-			portfolioLinks : {
-			
-				/**
-				 * init method for portfolioLinks
-				 * Modified: 01/15/2014
-				 *
-				 * @method init
-				 * @param {object} _p - Reference to CL.Resume
-				 * @author Craig Lucas <http://www.linkedin.com/in/craigjosephlucas>
-				 * @public
-				 */
-				init : function (_p) {
-				
-					var _s = this, // reference to this
-					$link, // link data
-					pageName;
-
-					this.$modal = $('#resumeModal');
-
-					_p.$jq.$pLinks.on("click.portfolioLinks", function (e) {
-						e.preventDefault();
-						$link = $(this);
-						pageName = $link.data('pageName');
-						_s.load(pageName);
-					});
-					
-				},
-
-				/**
-				 * load event for portfolio links
-				 * Modified: 01/15/2014
-				 *
-				 * @method load
-				 * @author Craig Lucas <http://www.linkedin.com/in/craigjosephlucas>
-				 * @public
-				 */
-				load : function (pageName) {
-
-					var request = 'js/portfolio-pages.json',
-					_self = this,
-					html,
-					$modal = $('#resumeModal');
-
-					$.getJSON(request, function (data) {
-						$.each(data.pages, function (i, link) {
-							
-							// active link
-							if (pageName === link.name) {
-								
-								// build the html for the portfolio link modal
-								html = _self.html(link);
-								
-								// append html to modal
-								_self.$modal.find('.modal-body').html(html)
-									
-								// show the portfolio link modal
-								_self.show();
-								
-							}
-						});
-					});
-					
-				},
-
-				/**
-				 * html for portfolio link
-				 * Modified: 01/15/2014
-				 *
-				 * @method html
-				 * @author Craig Lucas <http://www.linkedin.com/in/craigjosephlucas>
-				 * @public
-				 */
-				html : function (link) {
-				
-					var html; 
-
-					// lets add the portfolio link html to modal
-					html = link.descriptionHtml;
-
-					// return link html
-					return html;
-
-				},			
-	
-				/**
-				 * show portfolio link modal
-				 * Modified: 01/15/2014
-				 *
-				 * @method show
-				 * @author Craig Lucas <http://www.linkedin.com/in/craigjosephlucas>
-				 * @public
-				 */
-				show : function () {		
-				
-					// show modal
-					this.$modal.modal('show');
-
-				}				
-				
-
 			}
-		}
+		},
+        
+        Projects : {
+        
+            /**
+             * loads the project
+             * Modified: 01/25/2014
+             *
+             * @method load
+             * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+             * @public
+             */
+            init : function () {
+
+                // vars
+                var html;
+
+                // setup tab
+                this.Projects.setup();
+                
+                // load projects
+                this.Projects.load.call(this);
+                
+                // thumbnail binding
+                this.Projects.events.init.call(this);
+
+            },
+            
+            /**
+             * setup the "tab" object
+             * Modified: 01/25/2014
+             *
+             * @method setup
+             * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+             * @public
+             */
+            setup : function () {
+
+                this.$modal = $('#projectModal');
+                this.$projects = $('#projects');
+                this.angTpl = $('#tpl-project').html();
+                this.data = {};
+            },
+
+            
+            load : function () {
+                
+                var html,
+                    _self = this;
+                
+                $.getJSON('js/portfolio-pages.json', function (data) {                    
+                    _self.Projects.data = data.pages;                
+                });
+                
+            },
+            
+            /**
+             * Launch the Slider Modal<br>
+             * Modified: 08/29/2013
+             *
+             * @method modal
+             * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+             * @public
+             */ 
+            modal: function () {                                                                            
+                
+                this.Projects.$modal.modal('show');
+                
+            },            
+            
+            /**
+             * events object.
+             * Modified: 01/25/2014
+             *
+             * @type {object}
+             * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+             * @public
+             */                  
+            events: {
+                
+                /**
+                 * init methods <br>
+                 * Modified: 08/29/2013
+                 *
+                 * @method init
+                 * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+                 * @public
+                 */                    
+                init: function() {
+                    this.Projects.project.bind.call(this);
+                }
+                
+            },
+            
+            /**
+             * project object.
+             * Modified: 01/25/2014
+             *
+             * @type {object}
+             * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+             * @public
+             */             
+            project: {
+
+                /**
+                 * bind methods <br>
+                 * Modified: 08/29/2013
+                 *
+                 * @method bind
+                 * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+                 * @public
+                 */
+                bind: function () {
+                    var _self = this;
+                    
+                    this.Projects.$projects.find('a').on("click.launchProject", function (e) {
+                        _self.Projects.project.load.call(_self, e);
+                    });
+                    
+                },
+                
+                /**
+                 * load method <br>
+                 * Modified: 08/29/2013
+                 *
+                 * @method load
+                 * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+                 * @public
+                 */
+                load: function (e) {
+                    
+                   var html,
+                        pageName = e.currentTarget.dataset.pageName,
+                       _self = this;
+                    
+                    $.each(this.Projects.data, function (i, page) {
+                        
+                        if (pageName === page.name) {
+                            
+                            // build html    
+                           html = _self.Projects.project.html.call(_self, page);
+                           
+                            // inject into DOM
+                            _self.Projects.project.inject.call(_self, html);
+                            
+                            // show the modal
+                            _self.Projects.modal.call(_self );
+                        }
+                        
+                    });
+                    
+                },
+                
+                /**
+                 * build html for tab
+                 * Modified: 01/25/2014
+                 *
+                 * @method html
+                 * @param {object} set - photoset object
+                 * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+                 * @public
+                 */
+                html : function (set) {
+    
+                    var html;
+                                        
+                    html = Mustache.to_html(this.Projects.angTpl, set);
+                    
+                    return html;
+    
+                },
+                
+                /**
+                 * Inject photoset tab to DOM <br>
+                 * Modified: 08/29/2013
+                 *
+                 * @method inject
+                 * @param {string} html - Tab HTML.
+                 * @author Craig Joseph Lucas <http://www.linkedin.com/in/craigjosephlucas>
+                 * @public
+                 */
+                inject : function (html) {
+                    this.Projects.$modal.empty().append(html);
+                }               
+                
+            }
+        }        
 
 	};
 
@@ -359,4 +446,4 @@ var CL = window.CL || {};
 	});
 
 }
-	(jQuery, window));
+	(window.jQuery, window));
