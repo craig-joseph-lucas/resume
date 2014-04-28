@@ -47,7 +47,7 @@
                 "title": "Storylogues ASP.Net MVC Feature",
                 "projectLink": "http://www.everydayhealth.com/solutions/psoriasis-treatment-management/stories/expert-advice1",
                 "imgPath": "photos/project-storylogues.png",
-                "descriptionHtml" : "New responsive dynamic widget which allows for the creation of storylogues for treatment management. Each Storylogue can contain up to 6 topics of 4-6 articles. Each article can contain an image and copy or a Brightcove video. Widget was built to allow for deep linking to specific articles. With a focus on Progressive Enhancement we improved the user experience for desktop users by adding in thumbnail images via a slider widget for easier navigation.",
+                "descriptionHtml" : "New responsive dynamic widget which allows for the creation of storylogues for treatment management. Each Storylogue can contain up to 6 topics of 4-6 articles. Each article can contain an image and copy or a Brightcove video player. Widget was built to allow for deep linking to specific articles. With a focus on Progressive Enhancement we improved the user experience for desktop users by adding in thumbnail images via a slider widget for easier navigation.",
                 "technologies": [
                     { "name" : "CSS" },
                     { "name" : "HTML5" },
