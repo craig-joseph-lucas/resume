@@ -4,7 +4,7 @@
             {
                 "name": "old-article",
                 "title": "Custom Solutions ASP.Net Web Forms Article",
-                "projectLink": "http://www.everydayhealth.com/health-report/cold-flu-guide/common-cold-home-remedies.aspx",
+                "projectLink": false,
                 "imgPath": "photos/project2.png ",
                 "descriptionHtml" : "Custom Solutions article page in our legacy ASP.Net Web Forms Application",
                 "technologies": [
@@ -23,7 +23,7 @@
             {
                 "name": "new-article",
                 "title": "Custom Solutions ASP.Net MVC Article",
-                "projectLink": "http://www.everydayhealth.com/solutions/cold-flu-guide/common-cold-home-remedies",
+                "projectLink": false,
                 "imgPath": "photos/project2.png",
                 "descriptionHtml" : "Custom Solutions article page in our new MVC application. The entire codebase was rewritten with a major focus on SEO and page load time. The new article template saw a reduce in the number of HTTP requests per page from 65 to 23 and the page load time ultimately improved from 8.97 seconds to 3.4 seconds. The templates also introduced responsive framework integration utilizing Bootstrap, and a new SASS library for common UI widgets.",
                 "technologies": [
@@ -45,7 +45,7 @@
             {
                 "name": "storylogues",
                 "title": "Storylogues ASP.Net MVC Feature",
-                "projectLink": "http://www.everydayhealth.com/solutions/psoriasis-treatment-management/stories/expert-advice1",
+                "projectLink": false,
                 "imgPath": "photos/project-storylogues.png",
                 "descriptionHtml" : "New responsive dynamic widget which allows for the creation of storylogues for treatment management. Each Storylogue can contain up to 6 topics of 4-6 articles. Each article can contain an image and copy or a Brightcove video player. Widget was built to allow for deep linking to specific articles. With a focus on Progressive Enhancement we improved the user experience for desktop users by adding in thumbnail images via a slider widget for easier navigation.",
                 "technologies": [
@@ -70,7 +70,7 @@
             {
                 "name": "book-navigation",
                 "title": "Book Navigation ASP.Net MVC Feature",
-                "projectLink": "http://www.everydayhealth.com/solutions/psoriasis-treatment-management/stories/expert-advice1",
+                "projectLink": false,
                 "imgPath": "photos/project-booknav.png",
                 "descriptionHtml" : "New set of responsive templates for our condition management pages. Templates include a responsive full width vertical navigation bar, responsive inline article modules, and a responsive tips cycle module to name a few.",
                 "technologies": [
@@ -93,7 +93,7 @@
                 "name": "wedding-site",
                 "title": "My Personal Wedding Website",
                 "imgPath": "photos/project-weddingsite.png",
-                "projectLink": "http://jasperlovescraig.com",
+                "projectLink": "https://jasperlovescraig.github.io/wedding/",
                 "descriptionHtml" : "This personal site of mine was built to host all the photos and videos from my amazing wedding. This site was built with performance in mind. By using techniques such as lazy loading of images, session storage for each photoset, and mustache partial views. I was able to keep the page load time down under 5 seconds, which is a big win as the site contains over 500+ images.",
                 "technologies": [
                     { "name" : "CSS" },
@@ -117,7 +117,7 @@
                 "name": "nymag-visitor-guide",
                 "title": "NYC Visitor Guide",
                 "imgPath": "photos/project-visitors-guide.png",
-                "projectLink": "http://nymag.com/visitorsguide/",
+                "projectLink": false,
                 "descriptionHtml" : "Coded HTML/CSS/JS for entire package. Wrote JS functionality for switching between tabs. Segmented each tab's HTML by using server side includes so each tab would have its own file. As a result production was much more easier for producers.",
                 "technologies": [
                     { "name" : "CSS" },
@@ -134,7 +134,7 @@
                 "name": "nymag-bestofny",
                 "title": "New York Magazine's Best of New York Guide",
                 "imgPath": "photos/project-nymag-bestofny.png",
-                "projectLink": "http://nymag.com/bestofny/",
+                "projectLink": false,
                 "descriptionHtml" : "Coded HTML/CSS/JS for the features in package.",
                 "technologies": [
                     { "name" : "CSS" },
@@ -151,7 +151,7 @@
                 "name": "nymag-search",
                 "title": "New York Magazine's Sitewide Search",
                 "imgPath": "photos/project-nymag-search.png",
-                "projectLink": "http://nymag.com/srch?t=bar&N=0",
+                "projectLink": false,
                 "descriptionHtml" : "Coded HTML/CSS/JS for the sitewide search templats and filters.",
                 "technologies": [
                     { "name" : "CSS" },
@@ -168,7 +168,7 @@
                 "name": "nymag-wedding-guide",
                 "title": "NYC Wedding Guide",
                 "imgPath": "photos/project-nymag-wedding.png",
-                "projectLink" : "http://nymag.com/weddings/album/",
+                "projectLink" : false,
                 "descriptionHtml" : "Coded the CSS and JS for the guide and built templates using HTML:Templates for integration into the sites propriertray CMS.",
                 "technologies": [
                     { "name" : "CSS" },
