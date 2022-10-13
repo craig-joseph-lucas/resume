@@ -4938,12 +4938,7 @@ h3 {
   font-weight: bold; }
 .modal .book-navigation a.btn-primary {
   display: none; }
-.modal .book-navigation .project-description:after {
-  content: "Launching April 1, 2014";
-  display: block;
-  position: relative;
-  margin: 20px 0 0;
-  font: bold 16px arial; }
+
 
 @media print {
   #header h1 {

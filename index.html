@@ -97,6 +97,7 @@
                             <li>Implemented a tool for generating Critical CSS, which helped reduce our FCP and LCP by 2 seconds.</li>
                             <li>Implemented a tool for creating PSI audit reports on a given set of URLs. This helped the product team to keep a close eye on our PSI numbers</li>
                             <li>Pushed 90% of our pages into the green for our CLS scores</li>
+                            <li>Contributed to improving our Ad Management Tool by implementing header bidding into site for prebid and Apstag</li>
                             <li>Built scripts to streamline common development tasks, which allowed the team to focus more on coding. </li>
                             <li>Implemented CSS and JavaScript coding standards and review and approve all team front-end code.</li>
                             <li>Learned the BE codebase and became full stack developer so I can own the entire develoment track of each component</li>
@@ -161,12 +162,12 @@
             </header>
             <div class="content">
                 <ul>
-                    <li><abbr title="Hypertext Markup Language">HTML</abbr>5/, <abbr title="Cascading Style Sheets">CSS</abbr>3, <abbr title="Syntactically Awesome Style Sheets/Sassy CSS">SASS/SCSS</abbr>, JavaScript, <abbr title="ECMAScript 6">ES6</abbr>, <abbr title="JavaScript Object Notation">JSON</abbr>, NodeJS, ReactJS, Redux, C#, graphQL <abbr title="PHP: Hypertext Preprocessor.">PHP</abbr></li>
+                    <li><abbr title="Hypertext Markup Language">HTML</abbr>5/, <abbr title="Cascading Style Sheets">CSS</abbr>3, <abbr title="Syntactically Awesome Style Sheets/Sassy CSS">SASS/SCSS</abbr>, JavaScript, <abbr title="ECMAScript 6">ES6</abbr>, <abbr title="JavaScript Object Notation">JSON</abbr>, NodeJS, ReactJS, Redux, TypeScript, C#, graphQL <abbr title="PHP: Hypertext Preprocessor.">PHP</abbr></li>
                     <li>ASP.NET <abbr title="Model View Controller">MVC</abbr> and Web Forms, Webpack, gulp, grunt, <abbr title="Internet Information Services">IIS</abbr>, Windows Server 2010,  Ruby</li>
-                    <li>Sitefinity, Drupal, Moveable Type, WordPress, <abbr title="Global Content Management System">GCMS</abbr>(proprietary .NET driven CMS), Krang(proprietary Perl driven CMS)</li>
-                    <li>Photoshop, Visual Studio, SVN, Github, Google Analytics, Omniture, Brightcove, J2, Google Tag Manager, Doubleclick for Publishers</li>
+                    <li>Sitefinity, Drupal, Moveable Type, WordPress, Jekyll, GatsbyJs</li>
+                    <li>Photoshop, Visual Studio, SVN, Github, Google Analytics, Omniture, Brightcove, JWPlayer, Google Tag Manager, Doubleclick for Publishers</li>
                     <li>Agile (Scrum and Kanban), and Waterfall Methodologies</li>
-                    <li><strong>Specialties:</strong> Page Speed, Responsive Design, NodeJS, ReactJS, Page Rendering Optimization, <abbr title="Search Engine Optimization">SEO</abbr> Improvements, Semantic Accessible Markup, Progressive Enhancement, and Cross Browser Compatibility</li>
+                    <li><strong>Specialties:</strong> Page Speed Optimization, NodeJS, ReactJS, Search Engine Optimization, <abbr title="Search Engine Optimization">SEO</abbr> Improvements, Semantic Accessible Markup, Progressive Enhancement, and Cross Browser Compatibility</li>
             </div>
         </section>
         
@@ -206,7 +207,6 @@
                         <ul>
                             <li><a href="#" data-page-name="storylogues">Storylogues</a></li>
                             <li><a href="#" data-page-name="book-navigation">Book Navigation</a></li>                    
-                            <li><a href="#" data-page-name="old-article">Custom Solutions Article Page (pre relaunch)</a></li>
                             <li><a href="#" data-page-name="new-article">Custom Solutions Article Page (after relaunch)</a></li>                        
                         </ul>
                     </li>
@@ -262,7 +262,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</button>
-        <a href="{{projectLink}}" class="btn btn-primary btn-lg active" target="_blank" role="button">See the site</a>
+        {{#projectLink}}
+            <a href="{{projectLink}}" class="btn btn-primary btn-lg active" target="_blank" role="button">See the site</a>
+        {{/projectLink}}
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

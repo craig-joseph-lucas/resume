@@ -4,16 +4,8 @@
         font-weight: bold;   
     }
  
-    .book-navigation {
-        
+    .book-navigation {        
         a.btn-primary { display: none; }
-        .project-description:after {
-            content: "Launching April 1, 2014";
-            display: block;
-            position: relative;
-            margin: 20px 0 0;
-            font: bold 16px arial;
-        }
     }
     
 }

@@ -87,7 +87,33 @@
                     { "name" : "Google Analytics" }
                 ],
                 "company" : "Everyday Health LLC"                    
-            },               
+            },   
+            
+            {
+                "name": "devotional-site",
+                "title": "My Personal Devotional Website",
+                "imgPath": "photos/project-weddingsite.png",
+                "projectLink": "https://thevictoryisyours.com",
+                "descriptionHtml" : "This personal site of mine was built to be an outlet for me to share the good news of the gospel. It's purpose was to help me grow in my walk with Christ. While, at the same time giving me an opportunity to work with different technology stacks.",
+                "technologies": [
+                    { "name": "ReactJS"},
+                    { "name": "GatsbyJs"},
+                    { "name": "Github"},
+                    { "name": "Webpack"},
+                    { "name": "graphQL"},
+                    { "name": "ES6"},
+                    { "name": "TypeScript"},
+                    { "name": "markdown"},
+                    { "name": "Sass"},
+                    { "name" : "CSS" },
+                    { "name": "Google Analytics"},
+                    { "name": "Jest"}
+
+                    
+
+                ],
+                "company" : "NA"
+            },
             
             {
                 "name": "wedding-site",
