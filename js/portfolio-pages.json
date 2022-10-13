@@ -2,6 +2,37 @@
         "name": "portfolio pages",
         "pages": [
             {
+                "name": "article-eh",
+                "title": "EverydayHealth Article template",
+                "projectLink": "https://www.everydayhealth.com/fitness/reasons-walking-is-good-for-your-health/",
+                "imgPath": "photos/project-article-eh.png ",
+                "descriptionHtml" : "Everyday Health Article page consisting of react widgets and C# on the BE",
+                "technologies": [
+                    { "name": "ReactJS"},
+                    { "name": "JavaScript" },
+                    { "name": "NodeJs" },
+                    { "name": "Lerna" },
+                    { "name": "Github"},
+                    { "name": "Webpack"},
+                    { "name": "Penthouse" },
+                    { "name": "Lighthouse" },
+                    { "name": "Google Search Console" },
+                    { "name": "Gooogle Tag Manager" },
+                    { "name": "Eslint" },
+                    { "name": "Brightcove" },
+                    { "name": "jWPlayer" },
+                    { "name": "graphQL"},
+                    { "name": "ES6"},
+                    { "name": "TypeScript"},
+                    { "name": "markdown"},
+                    { "name": "Sass"},
+                    { "name" : "CSS" },
+                    { "name": "Google Analytics"},
+                    { "name": "Jest"}
+                ],
+                "company" : "Everyday Health LLC"
+            },
+            {
                 "name": "old-article",
                 "title": "Custom Solutions ASP.Net Web Forms Article",
                 "projectLink": false,
@@ -19,7 +50,7 @@
                     { "name" : "Google Analytics" }
                 ],
                 "company" : "Everyday Health LLC"
-            },
+            },           
             {
                 "name": "new-article",
                 "title": "Custom Solutions ASP.Net MVC Article",
@@ -87,8 +118,7 @@
                     { "name" : "Google Analytics" }
                 ],
                 "company" : "Everyday Health LLC"                    
-            },   
-            
+            },      
             {
                 "name": "devotional-site",
                 "title": "My Personal Devotional Website",
@@ -98,6 +128,7 @@
                 "technologies": [
                     { "name": "ReactJS"},
                     { "name": "GatsbyJs"},
+                    { "name": "NodeJs" },
                     { "name": "Github"},
                     { "name": "Webpack"},
                     { "name": "graphQL"},
