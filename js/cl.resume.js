@@ -233,7 +233,7 @@ var CL = Window.CL || {};
 			pdf : function () {
 			
 				this.$jq.$pdf.on("click.pdf", function (e) {
-					w.open("LucasCraigResume.pdf");
+					w.open("LucasCraigResume.pdf?v2");
 					e.preventDefault();
 				});
 				
